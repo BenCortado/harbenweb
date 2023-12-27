@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARBEN | Portfolio Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-FZ9jr7kveq2bSpAALxCuqCVvlyALp9CS6eL4p5vJYi/Bfqv3TM2fBpXEzLAM+GQ7qBKwIYavm3G6Nszx4GxDtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="website icon" type="jpg" href="img/html.jpg">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Anton', antonio;
+            background-color: #750E21;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background-color: #191919;
+        }
+
+        #logo h3 {
+            color: #E3651D;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 30px;
+        }
+
+        nav ul li a:hover {
+            margin-left: 2px #FFFFFF;
+            color: #E3651D;
+        }
+
+        section {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        #home img {
+            margin-top: 115px;
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid #E3651D;
+            transition: border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        #home img:hover {
+            border-color: #FFFFFF;
+        }
+
+
+        #home h1,
+        #home h2 {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        #home h1 {
+            text-align: center;
+            font-size: 100px;
+            color: #FFFFFF;
+        }
+
+        #home h2 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 52px;
+            color: transparent;
+            background-color: #E3651D;
+            -webkit-text-stroke: .3px #000000;
+            background-image: linear-gradient(#FFFFFF, #FFFFFF);
+            background-repeat: no-repeat;
+            -webkit-background-clip:  text;
+            background-position: -520px 0;
+            animation:  animateText 5s linear infinite;
+        }
+
+        @keyframes animateText {
+            0%, 95%, 100% {
+                background-position: -1500px 0;
+            }
+            65%, 85% {
+                background-position: 0 0;
+            }
+        }
+
+        footer {
+            font-size: 12px;
+            background-color: #191919;
+            color: #FFFFFF;
+            padding: 3px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #logo {
+            margin-left: 20px;
+            font-size: 20px;
+        }
+
+        #about {
+            background-color: #2C3E50;
+            color: #FFFFFF;
+            padding: 140px;
+            text-align: center;
+        }
+
+        #about img {
+            width: 125px;
+            height: 125px;
+            border-radius: 10%;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #35495e;
+        }
+
+        .container h2 {
+            font-size: 36px;
+            margin-top: 5PX;
+            margin-bottom: 5px;
+            color: #ffffff;
+            -webkit-text-stroke: .3px #000000;
+        }
+
+        .container p {
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+
+        #blogs {
+            background-color: #03001C;
+            text-align: center;
+            padding: 105px;
+        }
+
+        #blogs h3 {
+            font-size: 20px;
+        }
+
+        #blogs p {
+            font-size: 12px;
+        }
+
+        .blog-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 5px;
+        }
+
+        .blog-card {
+            width: 200px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #35495e;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 20vh;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .view-more-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            background-color: #5B8FB9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-more-btn:hover {
+            background-color: #437597;
+        }
+
+
+        #gallery {
+            background-color: #2C3E50;
+            padding: 100px;
+            position: relative;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            width: 180px;
+            height: 180px;
+            border-radius: 5px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2);
+        }
+
+        #contact {
+            background-color: #03001C;
+            color: #ffffff;
+            padding: 100px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .contact-info {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h2 {
+            font-size: 36px;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            -webkit-text-stroke: .3px #000000;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .contact-links a {
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 2px;
+            padding: 5px;
+            background-color: #E3651D;
+            border-radius: 5px;
+        }
+
+        .contact-links a:hover {
+            background-color: #750E21;
+        }
+
+        .contact-form {
+            max-width: 100%;
+            margin: 0;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #03001C;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: horizontal;
+            max-width: 100%;
+        }
+
+        .contact-form button {
+            background-color: #E3651D;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #750E21;
+        }
+
+        #confirmationMessage {
+            color: #009688;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <h3>C O R T A D O</h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blogs">Blog</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <img src="img/ben.jpg" alt="">
+        <h1>HI, I AM BEN!</h1>
+        <h2>HERO | OMNITRIX HOLDER</h2>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <img src="img/ben.jpg" alt="Profile Image" class="profile-img"> 
+            <h2>About</h2>
+            <p>My name is Crisdhan Harben Cortado. I am 19 years old.</p>
+            <p>I love playing basketball and mobile games.</p>
+            <p>I am passionate about being an IT Student.</p>
+        </div>
+    </section>
+
+    <section id="blogs">
+        <div class="blog-container">
+            <div class="blog-card">
+                <img src="img/ai.jpg" alt="Blog 1 Image">
+                <h3>Artificial intelligence is already in our hospitals.</h3>
+                <p>Artificial intelligence (AI) is already being used in health care. AI can look for patterns in medical...</p>
+                <button class="view-more-btn"><a href="https://theconversation.com/artificial-intelligence-is-already-in-our-hospitals-5-questions-people-want-answered-217374" target="_blank">CLICK FOR MORE</a></button>
+            </div>
+            <div class="blog-card">
+                <img src="img/ai2.jfif" alt="Blog 2 Image">
+                <h3>How AI is shaping the cybersecurity arms race</h3>
+                <p>The average business receives 10,000 alerts every day from the various software tools it uses to monitor...</p>
+                <button class="view-more-btn"><a href="https://theconversation.com/how-ai-is-shaping-the-cybersecurity-arms-race-167017">CLICK FOR MORE</a></button>
+            </div>
+            <div class="blog-card">
+                <img src="img/ai3.jfif" alt="Blog 3 Image">
+                <h3>How will AI affect workers?</h3>
+                <p>The explosion of interest in artificial intelligence has drawn attention not only to the astonishing...</p>
+                <button class="view-more-btn"><a href="https://theconversation.com/how-will-ai-affect-workers-tech-waves-of-the-past-show-how-unpredictable-the-path-can-be-205734">CLICK FOR MORE</a></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="img/1.jpg" alt="Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="img/2.png" alt="Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="img/3.jpg" alt="Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="img/4.jpg" alt="Image 4">
+        </div>
+        <div class="gallery-item">
+            <img src="img/5.jpg" alt="Image 5">
+        </div>
+        <div class="gallery-item">
+            <img src="img/6.jpg" alt="Image 6">
+        </div>
+        <div class="gallery-item">
+            <img src="img/7.jpg" alt="Image 7">
+        </div>
+        <div class="gallery-item">
+            <img src="img/8.jfif" alt="Image 8">
+        </div>
+        <div class="gallery-item">
+            <img src="img/9.png" alt="Image 9">
+        </div>
+        <div class="gallery-item">
+            <img src="img/10.jpg" alt="Image 10">
+        </div>
+    </div>
+
+    <section id="contact">
+    <div class="contact-info">
+        <h2>Contact Me</h2>
+        <div class="contact-links">
+            <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a>
+            <a href="https://t.me/yourprofile" target="_blank">Telegram</a>
+            <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+            <a href="mailto:youremail@example.com">Email</a>
+        </div>
+    </div>
+    
+    <div class="contact-form">
+        <h2>Send a Message</h2>
+        <form id="messageForm">
+            <!-- Your form fields go here -->
+            <textarea name="message" placeholder="Your message"></textarea>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="confirmationMessage"></div>
+    </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 | CORTADO, CRISDHAN HARBEN | All rights reserved. || Designed by thyself.</p>
+    </footer>
+
+    <script>
+    function submitForm() {
+        document.getElementById('confirmationMessage').innerHTML = 'Message submitted successfully!';
+        document.getElementById('messageForm').reset();
+    }
+</script>
+
+</body>
+</html>
